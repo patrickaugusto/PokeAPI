@@ -1,6 +1,10 @@
 package com.example.api.demo.controller;
 
 import com.example.api.demo.model.Pokemon;
+
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,12 +14,17 @@ import com.example.api.demo.service.PokemonService;
 
 
 @RestController
-@RequestMapping("api/v1/")
+@RequestMapping("api/pokemon/")
 public class PokemonController {
 
     @Autowired
     private PokemonService pokemonService;
 
+    @GetMapping
+    public ResponseEntity<List<Map<String, Object>>> getTodosPokemons() {
+        List<Map<String, Object>> pokemons = pokemonService.pegarTodosPokemons();
+        return ResponseEntity.ok(pokemons);
+    }
 
     @GetMapping("{id}/")
     public ResponseEntity<Pokemon> getPokemon(@PathVariable int id) {
@@ -40,7 +49,5 @@ public class PokemonController {
         pokemonService.deletarPokemon(id);
         return ResponseEntity.noContent().build();
     }
-    // vai dar um erro 405. oq é isso? o gemini responde:
-    //O erro "Method Not Allowed" (405) indica que o servidor web não permite que uma ação específica seja realizada em uma URL específica
     
 }
