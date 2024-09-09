@@ -35,4 +35,5 @@ Este projeto está licenciado sob a MIT License.
 
 ## Contato
 Patrick Augusto do Nascimento: trick0augusto@gmail.com
-Antonio Rodrigues Neto da Silva
+
+Antonio Rodrigues de Carvalho Neto: netodnet@gmail.com
