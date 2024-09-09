@@ -21,31 +21,31 @@ public class PokemonController {
     private PokemonService pokemonService;
 
     @GetMapping
-    public ResponseEntity<List<Map<String, Object>>> getTodosPokemons() {
+    public ResponseEntity<List<Map<String, Object>>> pegarTodosPokemons() {
         List<Map<String, Object>> pokemons = pokemonService.pegarTodosPokemons();
         return ResponseEntity.ok(pokemons);
     }
 
     @GetMapping("{id}/")
-    public ResponseEntity<Pokemon> getPokemon(@PathVariable int id) {
+    public ResponseEntity<Pokemon> pegarPokemonPorId(@PathVariable int id) {
         Pokemon pokemon = pokemonService.pegarPokemonPorId(id);
         return ResponseEntity.ok(pokemon);
     }
 
     @PostMapping
-    public ResponseEntity<Pokemon> postPokemon(@RequestBody Pokemon pokemon) {
+    public ResponseEntity<Pokemon> inserirPokemon(@RequestBody Pokemon pokemon) {
         Pokemon novoPokemon = pokemonService.criarPokemon(pokemon);
         return ResponseEntity.status(HttpStatus.CREATED).body(novoPokemon);
     }
 
     @PutMapping("{id}/")
-    public ResponseEntity<Void> putPokemon(@PathVariable int id, @RequestBody Pokemon pokemon) {
+    public ResponseEntity<Void> atualizarPokemonPorId(@PathVariable int id, @RequestBody Pokemon pokemon) {
         pokemonService.atualizarPokemon(id, pokemon);
         return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePokemon(@PathVariable int id) {
+    public ResponseEntity<Void> deletarPokemon(@PathVariable int id) {
         pokemonService.deletarPokemon(id);
         return ResponseEntity.noContent().build();
     }
