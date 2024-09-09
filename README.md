@@ -23,3 +23,16 @@ Esta aplicação foi desenvolvida para interagir com a [PokéAPI](https://pokeap
 - Java 17 ou superior
 - Maven 3.8 ou superior
 - IDE de sua preferência (e.g., IntelliJ IDEA, Eclipse)
+
+## Endpoints
+- GET /pokemon/{id}/: Retorna informações detalhadas sobre o Pokémon especificado pelo id.
+- POST /pokemon: Insere um pokemon com os atributos
+- DELETE /pokemon/{id}/: Deleta um pokemon especificando seu id.
+- PUT /pokemon/{id}/: Atualiza um pokemon especificando seu id
+
+## Licença
+Este projeto está licenciado sob a MIT License.
+
+## Contato
+Patrick Augusto do Nascimento: trick0augusto@gmail.com
+Antonio Rodrigues Neto da Silva
