@@ -2,8 +2,7 @@ package com.example.api.demo.controller;
 
 import com.example.api.demo.model.Pokemon;
 
-import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,15 +20,20 @@ public class PokemonController {
     private PokemonService pokemonService;
 
     @GetMapping
-    public ResponseEntity<List<Map<String, Object>>> pegarTodosPokemons() {
-        List<Map<String, Object>> pokemons = pokemonService.pegarTodosPokemons();
-        return ResponseEntity.ok(pokemons);
+    public String getAllData() {
+        return pokemonService.getAllData();
     }
 
-    @GetMapping("{id}/")
-    public ResponseEntity<Pokemon> pegarPokemonPorId(@PathVariable int id) {
-        Pokemon pokemon = pokemonService.pegarPokemonPorId(id);
-        return ResponseEntity.ok(pokemon);
+    /*@GetMapping("{id}/")
+    public Optional<Pokemon> pegarPokemonPorId(@PathVariable Integer id) throws Exception {
+        Optional<Pokemon> pokemon = pokemonService.pegarPokemonPorId(id);
+        return pokemon;
+    }
+
+    @GetMapping("{name}/")
+    public Optional<Pokemon> pegarPokemonPeloNome(@PathVariable String name) throws Exception {
+        Optional<Pokemon> pokemon = pokemonService.pegarPokemonPorNome(name);
+        return pokemon;
     }
 
     @PostMapping
@@ -48,6 +52,6 @@ public class PokemonController {
     public ResponseEntity<Void> deletarPokemon(@PathVariable int id) {
         pokemonService.deletarPokemon(id);
         return ResponseEntity.noContent().build();
-    }
+    }*/
     
 }
